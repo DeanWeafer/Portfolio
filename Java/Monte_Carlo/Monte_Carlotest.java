@@ -1,6 +1,8 @@
+package Monte_Carlo;
 
 /**
- * Write a description of class Monte_Carlotest here.
+ * This algorithmn solves the birthday problem which aims to
+ * calculate the percentage of people that have the same birthday
  *
  * @author Dean Weafer
  * @version 20/10/2022 before lab4
@@ -15,7 +17,7 @@ public class Monte_Carlotest
         sc.close();
         double num = 0.0;
         double ans = 0.0;
-        while(num<=100000.0){
+        while(num<=800000.0){
             int array[] = new int[n];
             int largest=0;
             ran(array);

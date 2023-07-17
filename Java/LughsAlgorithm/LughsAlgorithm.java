@@ -1,3 +1,4 @@
+package LughsAlgorithm;
 
 /**
  * From the furthest right, which is the check digit and moving left,
