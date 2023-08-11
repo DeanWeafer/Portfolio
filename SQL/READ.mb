@@ -1,0 +1,46 @@
+The answer.sql file contains answers to 12 questions in an exam about SQL.
+The createTable file contains the tables that we were given as part of our exam.
+
+I decided to list some of my answers to an exam to demonstrate my knowledge of SQL because
+it is easier to demonstrate my knowledge of joins, update and delete statements in SQL.
+
+The questions were:
+1. Write an SQL statement equivalent to the following query in relational algebra:
+PI guestname(SIGMA(check_out<'2017-12-31'))labexam3_hotel
+
+2.Write an SQL statement which deletes any booking record where payment is null. 
+
+3.For promotional purposes the booking type 'Getaway Package' is being changed and is being renamed as 'Time away'.
+Write an SQL statement which will make this update to every check_in on or after the 1st of November 2017.
+
+4. There is a new hotel policy. 
+Any booking where the payment is voucher and there are four or more guests should be updated to Getaway Package
+(if the booking is not already Getaway Package).
+
+5. There is an error with the guests attribute. For any Getaway Package booking
+ where the number of guests is greater than 2 then the guests attribute must be decremented by 1.
+  Write an update statement to perform this query. 
+
+6. There are a number of cancellations around the New Year period for New Year 2018.
+ Write an SQL Statement which deletes any booking where the check_in date is in 2017 
+ and the check_out date is in 2018 and the booking is 'Room Only' or 'Corporate'.  
+
+7. 
+Write an SQL statement equivalent to the following query in relational algebra.
+PI storeName (SIGMA SupplierName = 'Blogspan)stores join supplies join supplier
+
+8. Write a JOIN query which displays the details of all Suppliers from the state of Texas
+ who supply the store with store name Corwin Inc. 
+
+9. Write a JOIN query which displays the details of all Stores in the state of Ohio
+ who are supplied by the supplier with name Aimbo. 
+
+10. Write a JOIN query which displays the details of all Suppliers who supply stores
+ with a department equal to one of the following: Games, Shoes, Baby,Sports.
+ The supplier should have a rating of greater or equal to 7.5.
+
+11.  Consider only Stores in the state of Oklahoma which have Electronics departments.
+ Write a JOIN query to find the supplierID of the supplier who has the LOWEST overall rating. 
+
+12. The store "Corwin Inc" is going out of business. It must be deleted from the database.
+ Write a DELETE statement to perform this action. 
