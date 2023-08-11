@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Base_Conversion",
+            "request": "launch",
+            "mainClass": "Base_Conversion.Base_Conversion",
+            "projectName": "Portfolio_eb8d3498"
+        },
+        {
+            "type": "java",
+            "name": "Collats_Length",
+            "request": "launch",
+            "mainClass": "Collats_Length.Collats_Length",
+            "projectName": "Portfolio_eb8d3498"
+        },
+        {
+            "type": "java",
+            "name": "Hourglass",
+            "request": "launch",
+            "mainClass": "Hourglass.Hourglass",
+            "projectName": "Portfolio_eb8d3498"
+        },
+        {
+            "type": "java",
+            "name": "Long_Factorials",
+            "request": "launch",
+            "mainClass": "Long_Factorials.Long_Factorials",
+            "projectName": "Portfolio_eb8d3498"
+        },
+        {
+            "type": "java",
+            "name": "LughsAlgorithm",
+            "request": "launch",
+            "mainClass": "LughsAlgorithm.LughsAlgorithm",
+            "projectName": "Portfolio_eb8d3498"
+        },
+        {
+            "type": "java",
+            "name": "Monte_Carlotest",
+            "request": "launch",
+            "mainClass": "Monte_Carlo.Monte_Carlotest",
+            "projectName": "Portfolio_eb8d3498"
+        }
+    ]
+}

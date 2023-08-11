@@ -1,0 +1,3 @@
+This algorithm this in a string an prints each word or token on a new line. 
+The algorithm checks if there is a space and if there is one, then it prints the token on a new line.
+The O notation for this algorithm is n where n is the length of the string.

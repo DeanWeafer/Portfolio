@@ -1,0 +1,5 @@
+This algorithm takes in a string and finds the frequency of each digit in the string.
+
+The frequency of each digit is returned from 0 to 9 and each is seperated by a space.
+The O notation of this algorithm is n because it has to iterate over the entire string once.
+The second loop always runs 10 times.

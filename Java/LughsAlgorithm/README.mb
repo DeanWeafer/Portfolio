@@ -1,0 +1,15 @@
+This algorithm checks if an inmputed number follows Luhn's Algorithm.
+
+The way that this is done is by:
+1. Doubling every digit from the last digit.(The product is greater an 9, then subtract 9 from the product)
+2. Take the sum of all the digits.
+3. If the sum % 10 = 0 then the number follows Luhn's algorithm, everything else is invalid.
+
+The inputted string has to between 4 and 30 digits long.
+
+The O notation of this algorithm is n, where n is the length of the inputted string. The algorithm actually
+runs through the string twice, once in converting each value to an int array and two other times where 
+each loop iterates over half of the total digits. Therefore including contants this algorithm is 2n.
+
+The input is the number being tested 
+The output is either 'Valid' or 'Invalid'

@@ -1,0 +1,11 @@
+Given a 6 by 6 array of values, this algorithm picks out 16 hourglass patterns and finds the sum
+of all the values within each hourglass and then prints the largest sum to the screen.
+
+An hourglass is the a sum of values in the shape
+
+abc
+ d
+efh
+
+The algorithm has two loops, so the O notation of this algorithm is n^2, although the loops are set
+to only run 16 times because that is the amount of values that can be compared in a 6 by 6 array.

@@ -1,0 +1,14 @@
+This algorithm changes a number from one base to another, with the highest base being base 32.
+In order to take in high base numbers the number used as input is a string. It can also detect minus numbers 
+and perform the operation properly. The way that it does this is it changes the inputed number to decimal 
+and then changes that decimal number to the 'baseto' base that was inputed.
+The methods trueValue and numToLetter were done in the long form to account for either capital or
+small letters being used.
+
+The time complexity of this algorithm is n, where n is the number of digits. Note that this is the number 
+of digits in convertToBase and convertToDecimal, so a small 32 digit number may still be long to process
+once it is converted to decimal format.
+
+The three inputs are baseFrom, baseTo and number, where the number is in base of baseFrom
+
+And the output is the number in the base of baseTo

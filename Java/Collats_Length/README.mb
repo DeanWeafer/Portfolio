@@ -1,0 +1,12 @@
+This algorithm sorts numbers by their Collatz length.
+The Collatz length of a number is the number of steps it takes to reduce their value to 1 using two steps:
+
+1. If the number is even then divide it by 2.
+2. If the number is odd then muktiply it by 3 and then add 1.
+
+The input is the start, the end and the target.
+The start is the start of the range of numbers to be sorted.
+The end is the end of the range of numbers to be sorted.
+The target is the nth number in the range once the range has been sorted by their Collatz length.
+
+For an input of 4, 9 and 3 and output will be 5, as 5 is the third element in the list of sorted values.

@@ -1,0 +1,6 @@
+This algorithm prints the factorial of the inputted number n and uses BigIntegers to solve to large 
+factorials.
+
+The O notation of this algorithm n, where n is the inputed number.
+The algorithm loops while multiplying num by a, where num is n converted to BigInteger format and
+a is a BigInteger starting at one. Then num is decreased by one each loop.
