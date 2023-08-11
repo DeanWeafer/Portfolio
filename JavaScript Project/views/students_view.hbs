@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CRUD User Interface for NodeJS, ExpressJS and MongoDB REST API</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/all.css" rel="stylesheet" type="text/css"/>  
+</head>
+<body>
+  <div class="container"> <!-- class="table-responsive text-nowrap (play with Bootstrap attributes for look you want) -->
+    <h2><a class="breadcrumb-item text-dark" href="/">Tutorial Management Database</a> <span class="badge badge-secondary" id="databaseFilterNotice"></span></h2>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-search"></i></label>
+            <select class="custom-select" id="fieldSearchSelect">
+                <option value="1" selected>First Name</option>
+                <option value="2">Surname</option>
+            </select>
+        </div>
+        <input class="form-control py-2 border-left-0 border" type="search" placeholder="Filter Student List ..." id="tableFilter"> 
+    </div>
+
+    <!-- Tutorial Table -->
+    <table class="table table-hover table-striped" id="tutorialList">
+      <thead>
+        <tr>  <!-- <tr class="d-flex"> -->
+          <th style="width: 15%">First Name</th>
+          <th style="width: 15%">Surname</th>
+          <th style="width: 15%">Title</th>
+          <th style="width: 15%">Phone</th>
+          <th style="width: 15%">Email</th>
+          <th style="width: 40%">Home Address</th> 
+          <th style="width: 15%">DoB</th>
+          <th style="width: 15%">Parent</th>
+          <th style="width: 15%">Virtually</th>
+          <th style="width: 15%">Gender</th>
+          <th style="width: 15%">Subject</th>
+          <th class="text-center" style="width: 15%">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each results}}
+        <tr >
+          <td style="width: 15%">"{{FirstName}}"</td>
+          <td style="width: 15%">{{Surname}}</td>
+          <td style="width: 15%">{{title}}</td>
+          <td style="width: 15%">{{Phone}}</td>
+          <td style="width: 15%">{{Email}}</td>
+          <td style="width: 40%">{{home}}</td>
+          <td style="width: 15%">{{DoB}}</td>
+          <td style="width: 15%">{{Parent}}</td>
+          <td style="width: 15%">{{AttendVirtually}}</td>
+          <td style="width: 15%">{{Gender}}</td>
+          <td style="width: 15%">{{Subject}}</td>
+          <td class="text-right" style="width: 15%">
+            <a href="javascript:void(0);" class="btn btn-sm btn-info update" data-id="{{ id }}" data-first="{{ FirstName }}" data-sur="{{ Surname }}" data-title="{{title}}" data-phone="{{Phone}}" data-email="{{Email}}" data-home="{{home}}" data-dob="{{DoB}}" data-parent="{{Parent}}" data-attendvirtually="{{AttendVirtually}}" data-subject="{{Subject}}" data-gender="{{Gender}}" >Update</a>
+            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ id }}" data-first="{{ FirstName }}"  data-sur="{{ Surname }}" data-title="{{title}}" data-phone="{{Phone}}" data-email="{{Email}}" data-home="{{home}}" data-dob="{{DoB}}" data-parent="{{Parent}}" data-attendvirtually="{{AttendVirtually}}" data-subject="{{Subject}}" data-gender="{{Gender}}">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+     <!-- Database Search -->
+    <div class="input-group mb-3">
+        <!-- Add Tutorial Button  -->
+        <button class="btn btn-primary mr-5" data-toggle="modal" data-target="#addModal">Add</button>
+        <!-- Search the Database (Students) -->
+        <div class="input-group-prepend">
+             <select class="custom-select" id="databaseSearchSelect">
+                <option value="FirstName" selected>First Name</option>
+                <option value="Surname">Surname</option>
+            </select>
+        </div>
+        <input class="form-control py-2 border-left-0 border" type="search" placeholder="Find in Database ..." id="databaseSearchFilter"> 
+        <div class="input-group-append">
+            <button class="btn btn-success" type="button" id="databaseSearch">Find</button>
+        </div>
+    </div>   
+   </div>
+
+   </div>
+
+<script src="/assets/js/jquery-3.7.0.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        
+        // Field Selection for Search Bar
+        $("#fieldSearchSelect").on('change',function() {
+            var k = $(this).val();
+            if (k == 1) {
+                $("#tableFilter").attr("placeholder", "Filter FirstName List ...");
+            } else  {
+                $("#tableFilter").attr("placeholder", "Filter Surname List ...");
+            }
+            // $("#tableFilter").val("");
+            $("#tableFilter").keyup();
+        });
+
+        // Table Filter at the top of the page
+        $("#tableFilter").keyup(function(){
+            var filter = $(this).val().toUpperCase(); 
+            $("#tutorialList").find('tr').each(function(rows) {
+                if (rows !==  0) {
+                    var row = $(this);
+                    var searching = "";
+                    if ($("#fieldSearchSelect").val() == 1) {
+                        searching = row.find("td:first").text().toUpperCase();
+                    }  else  {
+                        searching = row.find("td:first + td").text().toUpperCase();
+                    }
+                    if (searching.indexOf(filter) != -1) {               
+                        row.show();
+                    } else {
+                        row.hide();
+                    }
+                }
+            });
+        });
+
+        //Database search at the bottom of the page
+        
+        $("#databaseSearch").on('click',function() {
+            var search = $("#databaseSearchFilter").val().replace(/[|&;$%@"<>()+,^  ]/g, "");
+            if (search) {
+                $(location).attr('href', '/'+$("#databaseSearchSelect").val()+'/'+search);
+            } else {
+                $(location).attr('href', '/');
+            }
+        });
+        //
+        //  If there is a database filter then add a badge
+        //
+        if ($(location).attr('pathname') !== '/') {
+           $('#databaseFilterNotice').text("("+$(location).attr('pathname')+")");
+        }
+    });
+</script>
+
+
+</body>
+</html>
